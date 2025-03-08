@@ -1,0 +1,77 @@
+name: Update Loon Rules Directory
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 每12小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml requests
+        
+    - name: Update directory list
+      run: |
+        python - <<EOF
+        import yaml
+        import requests
+        from datetime import datetime
+        
+        def update_directories():
+            api_url = "https://api.github.com/repos/blackmatrix7/ios_rule_script/contents/rule/Loon"
+            headers = {
+                'Accept': 'application/vnd.github.v3+json',
+                'Authorization': 'token ${{ secrets.GITHUB_TOKEN }}'
+            }
+            
+            try:
+                response = requests.get(api_url, headers=headers)
+                response.raise_for_status()
+                contents = response.json()
+                
+                # 获取目录并创建数据结构
+                directories = [item['name'] for item in contents if item['type'] == 'dir']
+                
+                data = {
+                    'metadata': {
+                        'updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                        'source': 'blackmatrix7/ios_rule_script',
+                        'total_directories': len(directories),
+                        'github_repo': 'https://github.com/blackmatrix7/ios_rule_script'
+                    },
+                    'directories': sorted(directories)
+                }
+                
+                # 保存为YAML
+                with open('loon_rules.yml', 'w', encoding='utf-8') as f:
+                    yaml.safe_dump(data, f, allow_unicode=True, sort_keys=False)
+                
+                return True
+            except Exception as e:
+                print(f"Error: {e}")
+                return False
+        
+        if __name__ == "__main__":
+            success = update_directories()
+            exit(0 if success else 1)
+        EOF
+        
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'GitHub Action'
+        git config --global user.email 'action@github.com'
+        git add loon_rules.yml
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update Loon rules directory $(date '+%Y-%m-%d %H:%M:%S')" && git push) 
