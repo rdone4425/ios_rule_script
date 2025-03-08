@@ -8,11 +8,15 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      
+      with:
+        token: ${{ secrets.PAT }}
+        
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -32,32 +36,28 @@ jobs:
         import os
 
         def update_directories():
-            # GitHub API URL
             api_url = "https://api.github.com/repos/rdone4425/ios_rule_script/contents/rule/Loon"
             headers = {
                 'Accept': 'application/vnd.github.v3+json',
             }
             
             try:
-                # 发送API请求
                 response = requests.get(api_url, headers=headers)
                 response.raise_for_status()
                 contents = response.json()
                 
-                # 获取目录列表
                 directories = [item['name'] for item in contents if item['type'] == 'dir']
-                directories.sort()  # 按字母顺序排序
+                directories.sort()
                 
-                # 创建ios_rule_script目录（如果不存在）
-                if not os.path.exists('ios_rule_script'):
-                    os.makedirs('ios_rule_script')
+                # 创建ios_rule_script目录
+                os.makedirs('ios_rule_script', exist_ok=True)
                 
-                # 将目录名写入loon.txt
+                # 写入txt文件
                 with open('ios_rule_script/loon.txt', 'w', encoding='utf-8') as f:
                     for directory in directories:
                         f.write(f"{directory}\n")
                 
-                # 同时创建YAML格式的文件
+                # 写入yml文件
                 data = {
                     'metadata': {
                         'updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -86,7 +86,7 @@ jobs:
         
     - name: Commit and push if changed
       run: |
-        git config --global user.name 'GitHub Action'
-        git config --global user.email 'action@github.com'
+        git config --local user.name "GitHub Action"
+        git config --local user.email "action@github.com"
         git add ios_rule_script/
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update Loon rules directory $(date '+%Y-%m-%d %H:%M:%S')" && git push) 
