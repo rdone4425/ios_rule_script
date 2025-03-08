@@ -13,6 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout meta-rules-dat repository
+        uses: actions/checkout@v4
+        with:
+          repository: rdone4425/meta-rules-dat
+          ref: meta
+          path: meta-rules-dat
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -25,13 +32,13 @@ jobs:
           import json
           
           # 创建新目录
-          os.makedirs('geoip', exist_ok=True)
+          os.makedirs('geoip-info', exist_ok=True)
           
           geoip_list = []
           base_url = "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip"
           
           # 扫描目录下的所有.list文件
-          for file in os.listdir('./geo/geoip'):
+          for file in os.listdir('./meta-rules-dat/geo/geoip'):
               if file.endswith('.list'):
                   country_code = file[:-5]  # 去掉.list后缀
                   geoip_list.append({
