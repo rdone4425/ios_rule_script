@@ -1,0 +1,65 @@
+name: Generate GeoIP List JSON
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天UTC 00:00运行
+  workflow_dispatch:      # 允许手动触发
+  
+jobs:
+  generate-list:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Create directories and generate JSON
+        run: |
+          # 创建目录
+          mkdir -p main/geoip
+          
+          # 开始生成JSON内容
+          echo "{" > main/geoip/geoip_list.json
+          echo "  \"metadata\": {" >> main/geoip/geoip_list.json
+          echo "    \"updated_at\": \"$(date -u '+%Y-%m-%d %H:%M:%S UTC')\"," >> main/geoip/geoip_list.json
+          echo "    \"source\": \"rdone4425/meta-rules-dat\"" >> main/geoip/geoip_list.json
+          echo "  }," >> main/geoip/geoip_list.json
+          echo "  \"countries\": [" >> main/geoip/geoip_list.json
+          
+          # 获取并处理所有.list文件
+          FIRST=true
+          curl -s https://api.github.com/repos/rdone4425/meta-rules-dat/contents/geo/geoip | \
+          grep "name.*\.list\"" | \
+          awk -F'"' '{print $4}' | sort | \
+          while read -r file; do
+            country="${file%.list}"
+            if [ "$FIRST" = true ]; then
+              FIRST=false
+            else
+              echo "    ," >> main/geoip/geoip_list.json
+            fi
+            echo "    {" >> main/geoip/geoip_list.json
+            echo "      \"code\": \"${country}\"," >> main/geoip/geoip_list.json
+            echo "      \"file\": \"${file}\"," >> main/geoip/geoip_list.json
+            echo "      \"url\": \"https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/${file}\"" >> main/geoip/geoip_list.json
+            echo -n "    }" >> main/geoip/geoip_list.json
+          done
+          
+          # 完成JSON结构
+          echo "" >> main/geoip/geoip_list.json
+          echo "  ]" >> main/geoip/geoip_list.json
+          echo "}" >> main/geoip/geoip_list.json
+          
+          # 使用jq格式化JSON（如果安装了jq）
+          if command -v jq >/dev/null 2>&1; then
+            jq '.' main/geoip/geoip_list.json > main/geoip/temp.json && mv main/geoip/temp.json main/geoip/geoip_list.json
+          fi
+          
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add main/geoip/geoip_list.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update GeoIP list JSON in main directory" && git push) 
