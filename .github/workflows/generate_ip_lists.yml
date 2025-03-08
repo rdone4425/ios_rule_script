@@ -75,9 +75,8 @@ jobs:
           # 获取传入的国家代码
           country_code = '${{ github.event.client_payload.country }}'.lower()
           
-          # 创建输出目录结构
-          os.makedirs(f'ip-lists/{country_code}/ipv4', exist_ok=True)
-          os.makedirs(f'ip-lists/{country_code}/ipv6', exist_ok=True)
+          # 创建输出目录
+          os.makedirs('ip-lists', exist_ok=True)
           
           # 处理 IP 列表
           input_file = f'./meta-rules-dat/geo/geoip/{country_code}.list'
@@ -93,29 +92,15 @@ jobs:
           
           # 保存 IPv4 列表
           if ipv4_list:
-              with open(f'ip-lists/{country_code}/ipv4/ips.txt', 'w') as f:
+              with open(f'ip-lists/{country_code}_ipv4.txt', 'w') as f:
                   f.write('\n'.join(ipv4_list))
-              
-              ipv4_metadata = {
-                  "count": len(ipv4_list),
-                  "updated_at": "${{ github.event.client_payload.timestamp }}"
-              }
-              with open(f'ip-lists/{country_code}/ipv4/metadata.json', 'w') as f:
-                  json.dump(ipv4_metadata, f, indent=2)
           
           # 保存 IPv6 列表
           if ipv6_list:
-              with open(f'ip-lists/{country_code}/ipv6/ips.txt', 'w') as f:
+              with open(f'ip-lists/{country_code}_ipv6.txt', 'w') as f:
                   f.write('\n'.join(ipv6_list))
-              
-              ipv6_metadata = {
-                  "count": len(ipv6_list),
-                  "updated_at": "${{ github.event.client_payload.timestamp }}"
-              }
-              with open(f'ip-lists/{country_code}/ipv6/metadata.json', 'w') as f:
-                  json.dump(ipv6_metadata, f, indent=2)
           
-          # 生成总体元数据
+          # 生成元数据
           metadata = {
               "country_code": country_code,
               "has_ipv4": bool(ipv4_list),
@@ -125,7 +110,7 @@ jobs:
               "generated_at": "${{ github.event.client_payload.timestamp }}"
           }
           
-          with open(f'ip-lists/{country_code}/metadata.json', 'w') as f:
+          with open(f'ip-lists/{country_code}_metadata.json', 'w') as f:
               json.dump(metadata, f, indent=2)
           EOF
 
