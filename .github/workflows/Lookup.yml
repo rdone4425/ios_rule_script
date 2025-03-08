@@ -75,7 +75,7 @@ jobs:
         
         def perform_dns_lookup():
             try:
-                reader = geoip2.database.Reader('GeoLite2/GeoLite2-Country.mmdb')
+                reader = geoip2.database.Reader('ios_rule_script/GeoLite2-Country.mmdb')
                 
                 with open('ios_rule_script/merged_domains.list', 'r', encoding='utf-8') as f:
                     lines = f.readlines()
