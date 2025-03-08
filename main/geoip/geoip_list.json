@@ -1,7 +1,338 @@
 {
   "元数据": {
-    "updated_at": "2025-03-08 11:55:32 UTC",
-    "来源": "rdone4425/meta-rules-dat"
+    "更新时间": "2025-03-08 12:00:32 UTC",
+    "来源": "https://github.com/rdone4425/meta-rules-dat/tree/meta/geo/geoip"
   },
-  "国家": []
+  "国家": [
+    {
+      "代码": "ad",
+      "文件": "ad.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ad.list"
+    },
+    {
+      "代码": "ad",
+      "文件": "ad.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ad.list"
+    },
+    {
+      "代码": "ae",
+      "文件": "ae.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ae.list"
+    },
+    {
+      "代码": "ae",
+      "文件": "ae.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ae.list"
+    },
+    {
+      "代码": "af",
+      "文件": "af.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/af.list"
+    },
+    {
+      "代码": "af",
+      "文件": "af.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/af.list"
+    },
+    {
+      "代码": "ag",
+      "文件": "ag.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ag.list"
+    },
+    {
+      "代码": "ag",
+      "文件": "ag.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ag.list"
+    },
+    {
+      "代码": "ai",
+      "文件": "ai.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ai.list"
+    },
+    {
+      "代码": "ai",
+      "文件": "ai.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ai.list"
+    },
+    {
+      "代码": "al",
+      "文件": "al.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/al.list"
+    },
+    {
+      "代码": "al",
+      "文件": "al.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/al.list"
+    },
+    {
+      "代码": "am",
+      "文件": "am.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/am.list"
+    },
+    {
+      "代码": "am",
+      "文件": "am.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/am.list"
+    },
+    {
+      "代码": "ao",
+      "文件": "ao.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ao.list"
+    },
+    {
+      "代码": "ao",
+      "文件": "ao.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ao.list"
+    },
+    {
+      "代码": "aq",
+      "文件": "aq.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/aq.list"
+    },
+    {
+      "代码": "aq",
+      "文件": "aq.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/aq.list"
+    },
+    {
+      "代码": "ar",
+      "文件": "ar.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ar.list"
+    },
+    {
+      "代码": "ar",
+      "文件": "ar.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ar.list"
+    },
+    {
+      "代码": "as",
+      "文件": "as.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/as.list"
+    },
+    {
+      "代码": "as",
+      "文件": "as.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/as.list"
+    },
+    {
+      "代码": "at",
+      "文件": "at.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/at.list"
+    },
+    {
+      "代码": "at",
+      "文件": "at.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/at.list"
+    },
+    {
+      "代码": "au",
+      "文件": "au.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/au.list"
+    },
+    {
+      "代码": "au",
+      "文件": "au.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/au.list"
+    },
+    {
+      "代码": "aw",
+      "文件": "aw.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/aw.list"
+    },
+    {
+      "代码": "aw",
+      "文件": "aw.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/aw.list"
+    },
+    {
+      "代码": "ax",
+      "文件": "ax.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ax.list"
+    },
+    {
+      "代码": "ax",
+      "文件": "ax.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ax.list"
+    },
+    {
+      "代码": "az",
+      "文件": "az.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/az.list"
+    },
+    {
+      "代码": "az",
+      "文件": "az.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/az.list"
+    },
+    {
+      "代码": "ba",
+      "文件": "ba.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ba.list"
+    },
+    {
+      "代码": "ba",
+      "文件": "ba.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/ba.list"
+    },
+    {
+      "代码": "bb",
+      "文件": "bb.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bb.list"
+    },
+    {
+      "代码": "bb",
+      "文件": "bb.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bb.list"
+    },
+    {
+      "代码": "bd",
+      "文件": "bd.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bd.list"
+    },
+    {
+      "代码": "bd",
+      "文件": "bd.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bd.list"
+    },
+    {
+      "代码": "be",
+      "文件": "be.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/be.list"
+    },
+    {
+      "代码": "be",
+      "文件": "be.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/be.list"
+    },
+    {
+      "代码": "bf",
+      "文件": "bf.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bf.list"
+    },
+    {
+      "代码": "bf",
+      "文件": "bf.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bf.list"
+    },
+    {
+      "代码": "bg",
+      "文件": "bg.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bg.list"
+    },
+    {
+      "代码": "bg",
+      "文件": "bg.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bg.list"
+    },
+    {
+      "代码": "bh",
+      "文件": "bh.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bh.list"
+    },
+    {
+      "代码": "bh",
+      "文件": "bh.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bh.list"
+    },
+    {
+      "代码": "bi",
+      "文件": "bi.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bi.list"
+    },
+    {
+      "代码": "bi",
+      "文件": "bi.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bi.list"
+    },
+    {
+      "代码": "bj",
+      "文件": "bj.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bj.list"
+    },
+    {
+      "代码": "bj",
+      "文件": "bj.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bj.list"
+    },
+    {
+      "代码": "bl",
+      "文件": "bl.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bl.list"
+    },
+    {
+      "代码": "bl",
+      "文件": "bl.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bl.list"
+    },
+    {
+      "代码": "bm",
+      "文件": "bm.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bm.list"
+    },
+    {
+      "代码": "bm",
+      "文件": "bm.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bm.list"
+    },
+    {
+      "代码": "bn",
+      "文件": "bn.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bn.list"
+    },
+    {
+      "代码": "bn",
+      "文件": "bn.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bn.list"
+    },
+    {
+      "代码": "bo",
+      "文件": "bo.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bo.list"
+    },
+    {
+      "代码": "bo",
+      "文件": "bo.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bo.list"
+    },
+    {
+      "代码": "bq",
+      "文件": "bq.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bq.list"
+    },
+    {
+      "代码": "bq",
+      "文件": "bq.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bq.list"
+    },
+    {
+      "代码": "br",
+      "文件": "br.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/br.list"
+    },
+    {
+      "代码": "br",
+      "文件": "br.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/br.list"
+    },
+    {
+      "代码": "bs",
+      "文件": "bs.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bs.list"
+    },
+    {
+      "代码": "bs",
+      "文件": "bs.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bs.list"
+    },
+    {
+      "代码": "bt",
+      "文件": "bt.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bt.list"
+    },
+    {
+      "代码": "bt",
+      "文件": "bt.list",
+      "链接": "https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/bt.list"
+    }
+  ]
 }
