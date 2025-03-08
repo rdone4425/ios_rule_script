@@ -1,0 +1,41 @@
+name: Auto Update from Upstream
+
+on:
+  schedule:
+    # 每天下午6点运行 (UTC+8)
+    - cron: '0 10 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+      
+      - name: Add Upstream Repository
+        run: |
+          git remote add upstream https://github.com/blackmatrix7/ios_rule_script.git
+          
+      - name: Fetch and Merge Upstream
+        run: |
+          git fetch upstream
+          # 在合并之前备份自定义文件
+          cp -r .github/workflows/ /tmp/workflows_backup/
+          git merge upstream/master --no-edit
+          # 恢复自定义文件
+          cp -r /tmp/workflows_backup/ .github/workflows/
+          
+      - name: Push Changes
+        run: |
+          git add .
+          git commit -m "chore: sync upstream and restore custom workflows" || echo "No changes to commit"
+          git push origin master
