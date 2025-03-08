@@ -22,11 +22,11 @@ jobs:
           
           # 开始生成JSON内容
           echo "{" > main/geoip/geoip_list.json
-          echo "  \"metadata\": {" >> main/geoip/geoip_list.json
+          echo "  \"元数据\": {" >> main/geoip/geoip_list.json
           echo "    \"updated_at\": \"$(date -u '+%Y-%m-%d %H:%M:%S UTC')\"," >> main/geoip/geoip_list.json
-          echo "    \"source\": \"rdone4425/meta-rules-dat\"" >> main/geoip/geoip_list.json
+          echo "    \"来源\": \"rdone4425/meta-rules-dat\"" >> main/geoip/geoip_list.json
           echo "  }," >> main/geoip/geoip_list.json
-          echo "  \"countries\": [" >> main/geoip/geoip_list.json
+          echo "  \"国家\": [" >> main/geoip/geoip_list.json
           
           # 获取并处理所有.list文件
           FIRST=true
@@ -41,9 +41,9 @@ jobs:
               echo "    ," >> main/geoip/geoip_list.json
             fi
             echo "    {" >> main/geoip/geoip_list.json
-            echo "      \"code\": \"${country}\"," >> main/geoip/geoip_list.json
-            echo "      \"file\": \"${file}\"," >> main/geoip/geoip_list.json
-            echo "      \"url\": \"https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/${file}\"" >> main/geoip/geoip_list.json
+            echo "      \"代码\": \"${country}\"," >> main/geoip/geoip_list.json
+            echo "      \"文件\": \"${file}\"," >> main/geoip/geoip_list.json
+            echo "      \"链接\": \"https://raw.githubusercontent.com/rdone4425/meta-rules-dat/meta/geo/geoip/${file}\"" >> main/geoip/geoip_list.json
             echo -n "    }" >> main/geoip/geoip_list.json
           done
           
@@ -52,7 +52,7 @@ jobs:
           echo "  ]" >> main/geoip/geoip_list.json
           echo "}" >> main/geoip/geoip_list.json
           
-          # 使用jq格式化JSON（如果安装了jq）
+          # 使用jq格式化JSON
           if command -v jq >/dev/null 2>&1; then
             jq '.' main/geoip/geoip_list.json > main/geoip/temp.json && mv main/geoip/temp.json main/geoip/geoip_list.json
           fi
@@ -62,4 +62,4 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add main/geoip/geoip_list.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update GeoIP list JSON in main directory" && git push) 
+          git diff --quiet && git diff --staged --quiet || (git commit -m "更新 GeoIP 列表 JSON" && git push) 
